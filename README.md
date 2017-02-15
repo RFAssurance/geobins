@@ -1,5 +1,6 @@
 # geobins
 Geographic binning algorithm to allow universal utilization of bins across any method.
+Requires UTM (Need to install utm: pip install utm) for proper utilization
 
 ## getBinsOneLLBound(): [getBinsInRegions.py]
   Input a longitude and latitude polygon region with optional (key, value) properties. A GeoJSON file and couple of mid/mif (input boundary, bin boundary, bin center) files will be generated.
