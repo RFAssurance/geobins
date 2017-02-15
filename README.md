@@ -8,14 +8,14 @@ Geographic binning algorithm to allow universal utilization of bins across any m
   Input a GeoID with optional (key, value) properties. A JSON string object will be returned.
 
 ## getGeoIDFromLL(longi, lati, binSizeMeter, binType, zoneNumIn = -1)
- Input: Longitude, Latitude, Bin size in meters, binType
+Input: Longitude, Latitude, Bin size in meters, binType
 Note: Bin size should be positive integer in meters (1 ~ 9999).
 Note: binType 0: square (center location as geoID),
               1: Hexagon (center location as geoID)
 Output: GeoID[40], centerLongi, centerLati, zoneNum
 Note: GeoID: [Reserved][BinType][BinSize][ZoneNum][LatitudeBand]
  [Easting][Northing]
-#Bytes: 10,1,4,3,11,11 = 40 characters
+Bytes: 10,1,4,3,11,11 = 40 characters
 Return: negative bit 0: invalid longitude
       negative bit 1: invalid latitude
       negative bit 2: invalid bin size
@@ -85,7 +85,7 @@ geoID = '00000000001010032U0000000526900000131015'
 
 ## Calling function
 retVal, geoID, centerLongi, centerLati, zoneNum = getGeoIDFromLL(longi, lati, binSizeMeter, binType)
-#print 'getGeoIDFromLL():', longi, lati, binSizeMeter, binType, ':', retVal, geoID, centerLongi, centerLati, zoneNum  ## Echo print
+print 'getGeoIDFromLL():', longi, lati, binSizeMeter, binType, ':', retVal, geoID, centerLongi, centerLati, zoneNum  ## Echo print
 
 ----------------------------------------------
 I verify the code using getBinsOneLLBound() (under development; still in progress) with the following:
@@ -93,4 +93,4 @@ numValInBound = 8
 llBound = [-122.51593,37.75312,-122.4993,37.78031,-122.432803,37.795259,-122.44142,37.752214]  ## in region
 binSizeMeter = 100
 binType = 1  ## Hexagon
-#binType = 0  ## Square
+binType = 0  ## Square
